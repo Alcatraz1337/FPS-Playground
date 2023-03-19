@@ -7,7 +7,8 @@ public class scr_CharacterController : MonoBehaviour {
     private CharacterController characterController;
     private DefaultInput defaultInput;
     private Vector2 inputMovement;
-    private Vector2 inputView;
+    [HideInInspector]
+    public Vector2 inputView;
 
     private Vector3 newCameraRotation;
     private Vector3 newCharacterRotation;
@@ -48,6 +49,8 @@ public class scr_CharacterController : MonoBehaviour {
     private Vector3 newMovementSpeed;
     private Vector3 newMovementSpeedVelocity;
 
+    [Header("Weapon")]
+    public scr_WeaponController currentWeapon;
 
     private void Awake() {
         defaultInput = new DefaultInput();
@@ -67,6 +70,10 @@ public class scr_CharacterController : MonoBehaviour {
         characterController = GetComponent<CharacterController>();
 
         cameraHeight = cameraHolder.localPosition.y; // Think about why not position.y?
+
+        if (currentWeapon) {
+            currentWeapon.Initialise(this);
+        }
     }
 
     private void Update() {

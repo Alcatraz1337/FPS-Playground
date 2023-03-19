@@ -518,3 +518,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,unity,macos,windows
+ignore.conf
+.plastic/plastic.workspace
+.plastic/plastic.wktree
+.plastic/plastic.selector
