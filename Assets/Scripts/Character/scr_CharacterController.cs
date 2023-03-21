@@ -6,7 +6,8 @@ using static Models;
 public class scr_CharacterController : MonoBehaviour {
     private CharacterController characterController;
     private DefaultInput defaultInput;
-    private Vector2 inputMovement;
+    [HideInInspector]
+    public Vector2 inputMovement;
     [HideInInspector]
     public Vector2 inputView;
 
