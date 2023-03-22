@@ -6,6 +6,9 @@ using UnityEngine;
 public class scr_WeaponController : MonoBehaviour {
     private scr_CharacterController characterController;
 
+    [Header("Referenses")]
+    public Animator weaponAnimator;
+
     [Header("Settings")]
     public WeaponSettingsModel settings;
     bool isInitialised;
@@ -34,6 +37,8 @@ public class scr_WeaponController : MonoBehaviour {
         if (!isInitialised) {
             return;
         }
+
+        weaponAnimator.speed = characterController.weaponAnimationSpeed;
 
         targetWeaponRotation.y += settings.SwayAmount * (settings.SwayXInverted ? -characterController.inputView.x : characterController.inputView.x) * Time.deltaTime;
         targetWeaponRotation.x += settings.SwayAmount * (settings.SwayYInverted ? characterController.inputView.y : -characterController.inputView.y) * Time.deltaTime;
